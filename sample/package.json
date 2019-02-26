@@ -1,0 +1,25 @@
+{
+  "name": "akashic-hover-plugin-sample",
+  "version": "0.0.0",
+  "description": "",
+  "main": "script/main.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "npm run build",
+    "start": "akashic-sandbox .",
+    "build": "tsc -p . && akashic scan asset script"
+  },
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "@akashic-extension/akashic-hover-plugin": "~2.0.0"
+  },
+  "devDependencies": {
+    "@akashic/akashic-cli-scan": "~0.2.2",
+    "@akashic/akashic-engine": "~2.4.11",
+    "@akashic/akashic-sandbox": "~0.13.54",
+    "@types/node": "7.0.5",
+    "typescript": "~3.3.0"
+  }
+}

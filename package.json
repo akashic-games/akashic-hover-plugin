@@ -1,0 +1,39 @@
+{
+  "name": "@akashic-extension/akashic-hover-plugin",
+  "version": "2.0.0",
+  "description": "A plugin handling mouse hover/unhover events easily for Akashic Engine",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "prepublish": "npm run build",
+    "test": "npm run lint:ts && npm run lint:md",
+    "lint:ts": "tslint -c tslint.json src/**/*.ts sample/src/**/*.ts",
+    "lint:md": "remark ./*.md --frail --no-stdout --quiet --rc-path ./.remarkrc",
+    "build": "rimraf ./lib && tsc"
+  },
+  "author": "DWANGO Co., Ltd.",
+  "license": "MIT",
+  "files": [
+    "lib",
+    "package.json",
+    "README.md"
+  ],
+  "dependencies": {
+    "@akashic/akashic-engine": "~2.4.11"
+  },
+  "devDependencies": {
+    "@types/node": "7.0.5",
+    "remark-cli": "6.0.1",
+    "remark-lint": "~6.0.4",
+    "rimraf": "2.6.3",
+    "tslint": "~4.4.2",
+    "typescript": "~3.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akashic-games/akashic-hover-plugin.git"
+  },
+  "publishConfig": {
+    "@akashic-extension:registry": "https://registry.npmjs.org/"
+  }
+}
