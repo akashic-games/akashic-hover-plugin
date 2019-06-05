@@ -1,5 +1,5 @@
-import { HoverPluginOptions } from "./HoverPluginOptions";
 import { HoverableE } from "./HoverableE";
+import { HoverPluginOptions } from "./HoverPluginOptions";
 
 /**
  * ホバー機能を提供するプラグイン。
@@ -11,12 +11,12 @@ export class HoverPlugin implements g.OperationPlugin {
 
 	game: g.Game;
 	view: HTMLElement;
-	beforeHover: HoverableE;
-	operationTrigger: g.Trigger<g.OperationPluginOperation>;
+	beforeHover: HoverableE | null;
+	operationTrigger: g.Trigger<g.OperationPluginOperation | (number | string)[]>;
 
-	_onMouseMove_bound: () => void;
-	_onMouseOut_bound: () => void;
-	_getScale: () => {x: number, y: number};
+	_onMouseMove_bound: (e: MouseEvent) => void;
+	_onMouseOut_bound: (e: MouseEvent) => void;
+	_getScale: (() => {x: number, y: number}) | null;
 
 	_cursor: string;
 	_showTooltip: boolean;
@@ -25,7 +25,7 @@ export class HoverPlugin implements g.OperationPlugin {
 		this.game = game;
 		this.view = (view as any).view;
 		this.beforeHover = null;
-		this.operationTrigger = new g.Trigger<g.OperationPluginOperation>();
+		this.operationTrigger = new g.Trigger();
 		this._cursor = option.cursor || "pointer";
 		this._showTooltip = !!option.showTooltip;
 		this._getScale = (view as any).getScale ? () => (view as any).getScale() : null;
@@ -83,7 +83,7 @@ export class HoverPlugin implements g.OperationPlugin {
 
 	_onUnhovered(target: HoverableE): void {
 		this.view.style.cursor = "auto";
-		if (this.beforeHover.unhovered) {
+		if (this.beforeHover && this.beforeHover.unhovered) {
 			this.beforeHover.unhovered.fire();
 			if (this._showTooltip) {
 				this.view.removeAttribute("title");
