@@ -5,6 +5,7 @@
     "noImplicitAny": true,
     "module": "commonjs" ,
     "outDir": "./lib",
+    "strict": true,
     "declaration": true
   },
   "files": [
