@@ -1,8 +1,8 @@
 import * as hover from "@akashic-extension/akashic-hover-plugin";
-import { HoverableRect } from "./HoverableRect";
 import { HoverableLabel } from "./HoverableLabel";
+import { HoverableRect } from "./HoverableRect";
 
-export function main(param: g.GameMainParameterObject) {
+export function main(param: g.GameMainParameterObject): void {
 	const scene = new g.Scene({game: g.game, assetIds: ["aco"]});
 	scene.loaded.addOnce(() => {
 		const font = new g.DynamicFont({
@@ -15,7 +15,7 @@ export function main(param: g.GameMainParameterObject) {
 			(() => {
 				const aco = new g.FrameSprite({
 					scene: scene,
-					src: <g.ImageAsset>scene.assets["aco"],
+					src: scene.assets["aco"] as g.ImageAsset,
 					x: 5,
 					y: i * 50,
 					width: 32,

@@ -1,5 +1,5 @@
-import { HoverPluginOptions } from "./HoverPluginOptions";
 import { HoverableE } from "./HoverableE";
+import { HoverPluginOptions } from "./HoverPluginOptions";
 
 /**
  * ホバー機能を提供するプラグイン。
