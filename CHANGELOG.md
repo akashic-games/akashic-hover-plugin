@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## Unreleased changes
+* akashic-engine@3.0.0 系に追従。
+
 ## 2.1.0
 * 利用コンテンツを `akashic export` すると動作しなくなる問題を修正
   * `require("@akashic-extension/akashic-hover-plugin").HoverPlugin` がなくなります。
