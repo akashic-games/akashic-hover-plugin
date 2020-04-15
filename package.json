@@ -1,6 +1,6 @@
 {
   "name": "@akashic-extension/akashic-hover-plugin",
-  "version": "2.1.0",
+  "version": "3.0.0-beta.0",
   "description": "A plugin handling mouse hover/unhover events easily for Akashic Engine",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -19,7 +19,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@akashic/akashic-engine": "~2.4.14"
+    "@akashic/akashic-engine": "~3.0.0-beta.17"
   },
   "devDependencies": {
     "@types/node": "12.0.4",
@@ -27,7 +27,7 @@
     "remark-lint": "~6.0.4",
     "rimraf": "2.6.3",
     "tslint": "~5.17.0",
-    "typescript": "~3.5.1"
+    "typescript": "~3.8.3"
   },
   "repository": {
     "type": "git",

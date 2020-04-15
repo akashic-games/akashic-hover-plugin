@@ -46,6 +46,9 @@ export class HoverPlugin implements g.OperationPlugin {
 	}
 
 	_onMouseMove(e: MouseEvent): void {
+		const scene = this.game.scene();
+		if (!scene) return;
+
 		const rect = this.view.getBoundingClientRect();
 		const positionX = rect.left + window.pageXOffset;
 		const positionY = rect.top + window.pageYOffset;
@@ -57,7 +60,7 @@ export class HoverPlugin implements g.OperationPlugin {
 		}
 
 		const point = { x: offsetX / scale.x, y: offsetY / scale.y };
-		const target = this.game.scene().findPointSourceByPoint(point).target as HoverableE;
+		const target = scene.findPointSourceByPoint(point).target as HoverableE;
 		if (target && target.hoverable) {
 			if (target !== this.beforeHover) {
 				if (this.beforeHover && this.beforeHover.hoverable) {
