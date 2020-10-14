@@ -19,7 +19,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@akashic/akashic-engine": "~3.0.0-beta.17"
+    "@akashic/akashic-engine": "~3.0.0-beta.33"
   },
   "devDependencies": {
     "@types/node": "12.0.4",
