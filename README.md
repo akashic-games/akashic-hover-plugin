@@ -18,6 +18,8 @@ akashic install --plugin 5 @akashic-extension/akashic-hover-plugin
 
 でインストールできます。
 
+上記の例では `--plugin` に `5` を指定していますが、これは任意の値で問題ありません。
+
 本プラグインは、エントリポイント(`lib/index`)とプラグイン本体のスクリプトファイルが異なるため、
 `game.json` を以下のように書き換える必要があります。
 (相対パスとして認識させるため `./` が先頭に必要です。)
