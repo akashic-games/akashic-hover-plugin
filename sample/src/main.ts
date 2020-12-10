@@ -4,18 +4,18 @@ import { HoverableRect } from "./HoverableRect";
 
 export function main(param: g.GameMainParameterObject): void {
 	const scene = new g.Scene({game: g.game, assetIds: ["aco"]});
-	scene.loaded.addOnce(() => {
+	scene.onLoad.add(() => {
 		const font = new g.DynamicFont({
 			game: g.game,
 			size: 40,
-			fontFamily: g.FontFamily.SansSerif
+			fontFamily: "sans-serif"
 		});
 
 		for (let i = 0; i < 5; i++) {
 			(() => {
 				const aco = new g.FrameSprite({
 					scene: scene,
-					src: scene.assets["aco"] as g.ImageAsset,
+					src: scene.asset.getImageById("aco"),
 					x: 5,
 					y: i * 50,
 					width: 32,
