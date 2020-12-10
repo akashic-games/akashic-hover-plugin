@@ -13,16 +13,10 @@
 [akashic-cli](https://github.com/akashic-games/akashic-cli)をインストールした後、
 
 ```sh
-akashic install @akashic-extension/akashic-hover-plugin
+akashic install --plugin 5 @akashic-extension/akashic-hover-plugin
 ```
 
-でインストールできます。コンテンツからは、
-
-```javascript
-var hover = require("@akashic-extension/akashic-hover-plugin");
-```
-
-で利用してください。
+でインストールできます。
 
 本プラグインは、エントリポイント(`lib/index`)とプラグイン本体のスクリプトファイルが異なるため、
 `game.json` を以下のように書き換える必要があります。
