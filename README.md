@@ -8,16 +8,21 @@
 
 実装例は `sample` ディレクトリ以下にあるサンプルプロジェクトを参照してください。
 
-## 使い方
+## 利用方法
 
-### 準備
-
-まずは本プラグインを任意の `code` でインストールします。
-以下は `code` を5とした場合のコマンド例です。
+[akashic-cli](https://github.com/akashic-games/akashic-cli)をインストールした後、
 
 ```sh
-akashic install --plugin 5 @akashic-extension/akashic-hover-plugin
+akashic install @akashic-extension/akashic-hover-plugin
 ```
+
+でインストールできます。コンテンツからは、
+
+```javascript
+var hover = require("@akashic-extension/akashic-hover-plugin");
+```
+
+で利用してください。
 
 本プラグインは、エントリポイント(`lib/index`)とプラグイン本体のスクリプトファイルが異なるため、
 `game.json` を以下のように書き換える必要があります。
@@ -106,6 +111,6 @@ hoveredRect.unhovered.add(() => {
 ## ライセンス
 本リポジトリは MIT License の元で公開されています。
 詳しくは [LICENSE](https://github.com/akashic-games/akashic-hover-plugin/blob/master/LICENSE) をご覧ください。
- 
+
 ただし、画像ファイルおよび音声ファイルは
 [CC BY 2.1 JP](https://creativecommons.org/licenses/by/2.1/jp/) の元で公開されています。
