@@ -16,7 +16,7 @@ export class HoverPlugin implements g.OperationPlugin {
 
 	_onMouseMove_bound: (e: MouseEvent) => void;
 	_onMouseOut_bound: (e: MouseEvent) => void;
-	_getScale: (() => {x: number, y: number}) | null;
+	_getScale: (() => {x: number; y: number}) | null;
 
 	_cursor: string;
 	_showTooltip: boolean;
