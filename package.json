@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "test": "npm run lint:ts && npm run lint:md",
     "lint:ts": "tslint -c tslint.json src/**/*.ts sample/src/**/*.ts",
     "lint:md": "remark ./*.md --frail --no-stdout --quiet --rc-path ./.remarkrc",
@@ -34,6 +34,7 @@
     "url": "https://github.com/akashic-games/akashic-hover-plugin.git"
   },
   "publishConfig": {
-    "@akashic-extension:registry": "https://registry.npmjs.org/"
+    "@akashic-extension:registry": "https://registry.npmjs.org/",
+    "tag": "for_ae2x"
   }
 }
