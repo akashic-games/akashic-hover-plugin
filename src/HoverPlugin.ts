@@ -5,21 +5,20 @@ import { HoverPluginOptions } from "./HoverPluginOptions";
  * ホバー機能を提供するプラグイン。
  */
 export class HoverPlugin implements g.OperationPlugin {
-	static isSupported(): boolean {
-		return (typeof document !== "undefined") && (typeof document.addEventListener === "function");
-	}
-
 	game: g.Game;
 	view: HTMLElement;
 	beforeHover: HoverableE | null;
 	operationTrigger: g.Trigger<g.OperationPluginOperation | (number | string)[]>;
+	_cursor: string;
+	_showTooltip: boolean;
 
 	_onMouseMove_bound: (e: MouseEvent) => void;
 	_onMouseOut_bound: (e: MouseEvent) => void;
-	_getScale: (() => {x: number; y: number}) | null;
+	_getScale: (() => { x: number; y: number }) | null;
 
-	_cursor: string;
-	_showTooltip: boolean;
+	static isSupported(): boolean {
+		return (typeof document !== "undefined") && (typeof document.addEventListener === "function");
+	}
 
 	constructor(game: g.Game, view: g.OperationPluginView, option: HoverPluginOptions = {}) {
 		this.game = game;
@@ -84,7 +83,7 @@ export class HoverPlugin implements g.OperationPlugin {
 		}
 	}
 
-	_onUnhovered(target: HoverableE): void {
+	_onUnhovered(_target: HoverableE): void {
 		this.view.style.cursor = "auto";
 		if (this.beforeHover && this.beforeHover.unhovered) {
 			this.beforeHover.unhovered.fire();
