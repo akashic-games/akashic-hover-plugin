@@ -8,15 +8,15 @@ export interface HoverableE extends g.E {
 	 *  - 対象のエンティティにマウスオーバーした際に `hovered` トリガを発火する。
 	 *  - 対象のエンティティからマウスアウトした際に `unhovered` トリガを発火する。
 	 */
-	hoverable: boolean;
+	hoverable?: boolean;
 	/**
 	 * このエンティティにマウスオーバーした際に発火するトリガ。
 	 */
-	hovered: g.Trigger<void>;
+	hovered?: g.Trigger<void>;
 	/**
 	 * このエンティティからマウスアウトした際に発火するトリガ。
 	 */
-	unhovered: g.Trigger<void>;
+	unhovered?: g.Trigger<void>;
 	/**
 	 * このエンティティにマウスホバーした際に変化するカーソルの形状。
 	 */
