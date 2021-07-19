@@ -27,7 +27,7 @@ export class HoverPlugin implements g.OperationPlugin {
 		this.operationTrigger = new g.Trigger();
 		this._cursor = option.cursor || "pointer";
 		this._showTooltip = !!option.showTooltip;
-		this._getScale = (viewInfo.view as any).getScale ? () => (viewInfo.view as any).getScale() : null;
+		this._getScale = (viewInfo as any).getScale ? () => (viewInfo as any).getScale() : null;
 
 		this._onMouseMove_bound = this._onMouseMove.bind(this);
 		this._onMouseOut_bound = this._onMouseOut.bind(this);
