@@ -79,7 +79,7 @@ export class HoverPlugin implements g.OperationPlugin {
 			if (this._showTooltip && target.title) {
 				this.view.setAttribute("title", target.title);
 			}
-			target.hovered?.fire();
+			target.hovered.fire();
 		}
 	}
 
