@@ -35,8 +35,8 @@ export class Converter {
 	/**
 	 * エンティティのホバーを解除する。
 	 */
-	static asUnhoverable(e: g.E): HoverableE {
-		const hoverableE = e as HoverableE;
+	static asUnhoverable(e: g.E): g.E {
+		const hoverableE = e as Partial<HoverableE>;
 		delete hoverableE.hoverable;
 		if (hoverableE.hovered && ! hoverableE.hovered.destroyed()) {
 			hoverableE.hovered.destroy();
@@ -47,6 +47,6 @@ export class Converter {
 			hoverableE.unhovered.destroy();
 			delete hoverableE.unhovered;
 		}
-		return hoverableE;
+		return hoverableE as g.E;
 	}
 }
