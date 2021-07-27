@@ -20,14 +20,14 @@ export class HoverPlugin implements g.OperationPlugin {
 		return (typeof document !== "undefined") && (typeof document.addEventListener === "function");
 	}
 
-	constructor(game: g.Game, view: g.OperationPluginView, option: HoverPluginOptions = {}) {
+	constructor(game: g.Game, viewInfo: g.OperationPluginViewInfo, option: HoverPluginOptions = {}) {
 		this.game = game;
-		this.view = (view as any).view;
+		this.view = viewInfo.view as HTMLElement;
 		this.beforeHover = null;
 		this.operationTrigger = new g.Trigger();
 		this._cursor = option.cursor || "pointer";
 		this._showTooltip = !!option.showTooltip;
-		this._getScale = (view as any).getScale ? () => (view as any).getScale() : null;
+		this._getScale = (viewInfo as any).getScale ? () => (viewInfo as any).getScale() : null;
 
 		this._onMouseMove_bound = this._onMouseMove.bind(this);
 		this._onMouseOut_bound = this._onMouseOut.bind(this);
