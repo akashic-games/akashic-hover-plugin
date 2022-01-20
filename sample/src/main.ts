@@ -4,6 +4,9 @@ import { HoverableRect } from "./HoverableRect";
 
 export function main(param: g.GameMainParameterObject): void {
 	const scene = new g.Scene({game: g.game, assetIds: ["aco"]});
+	g.game.operationPluginManager.register(hover.HoverPlugin, 5);
+	g.game.operationPluginManager.start(5);
+
 	scene.onLoad.add(() => {
 		const font = new g.DynamicFont({
 			game: g.game,

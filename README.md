@@ -13,40 +13,39 @@
 [akashic-cli](https://github.com/akashic-games/akashic-cli)をインストールした後、
 
 ```sh
-akashic install --plugin 5 @akashic-extension/akashic-hover-plugin
+akashic install @akashic-extension/akashic-hover-plugin
 ```
 
 でインストールできます。
 
-上記の例では `--plugin` に `5` を指定していますが、これは任意の値で問題ありません。
-
-本プラグインは、エントリポイント(`lib/index`)とプラグイン本体のスクリプトファイルが異なるため、
-`game.json` を以下のように書き換える必要があります。
-(相対パスとして認識させるため `./` が先頭に必要です。)
+本プラグインをコンテンツへ登録し利用するには `g.OperationPluginManager#register()` を利用します。
+`g.OperationPluginManager#register()` の第一引数にはプラグインの実態、第二引数には識別コードを指定する必要があります。識別コードは対象のプラグインを開始/停止する操作に必要となります。
 
 ```javascript
+import { HoverPlugin } from "@akashic-extension/akashic-hover-plugin/lib/HoverPlugin";
 ...
-	"assets": {
-		...
-		// スクリプトアセットとして追加
-		"hover_plugin": {
-			"type": "script",
-			"path": "node_modules/@akashic-extension/akashic-hover-plugin/lib/HoverPlugin.js",
-			"global": true
-		}
-	},
+g.game.operationPluginManager.register(HoverPlugin, 5); // HoverPlugin を 識別コード 5 で 登録
+g.game.operationPluginManager.start(5); // 識別コード 5 のプラグインを開始
 ...
-	"operationPlugins": [
-		{
-			"code": 5,
-			"script": "./node_modules/@akashic-extension/akashic-hover-plugin/lib/HoverPlugin.js", // HoverPlugin.js のパスに書き換え
-			"option": {
-				"cursor": "pointer" // ホバー時のcursorを指定。省略時は "pointer"
-			}
-		}
-	],
-...
+
+g.game.operationPluginManager.stop(5) // 識別コード 5 のプラグインを停止
 ```
+
+また、第三引数にはプラグインのオプションを指定できます。
+
+```javascript
+g.game.operationPluginManager.register(HoverPlugin, 5, { cursor: "help", showTooltip: true });
+```
+
+`option` は次の名前のプロパティ名と対応する値を持つオブジェクトです。
+
+ * cursor
+   * 文字列 (省略可能。省略された場合 `"pointer"`)
+   * ホバー時のcursorを指定。CSSに準拠。
+ * showTooltip
+   * 真偽値 (省略可能。省略された場合 `false`)
+   * ホバー時にtooltipを表示されるかどうか。
+   * 表示内容は `HoverableE#title` 。
 
 ### コンテンツへの適用
 
@@ -83,21 +82,6 @@ hoveredRect.unhovered.add(() => {
 	rect.modified();
 });
 ```
-
-## 仕様
-
-### option
-
-`game.json` の `operationPlugins` の節で `option` プロパティにオブジェクトを記述することで、プラグインのオプションを指定できます。
-`option` は次の名前のプロパティ名と対応する値を持つオブジェクトです。
-
- * cursor
-   * 文字列 (省略可能。省略された場合 `"pointer"`)
-   * ホバー時のcursorを指定。CSSに準拠。
- * showTooltip
-   * 真偽値 (省略可能。省略された場合 `false`)
-   * ホバー時にtooltipを表示されるかどうか。
-   * 表示内容は `HoverableE#title` 。
 
 ## 注意点
 本プラグインは **`g.OperationEvent` を生成しません。**
