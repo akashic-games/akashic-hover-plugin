@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 3.1.1
+## 3.2.0
 * `HoverPlugin` の実装を `HoverPluginImpl` へ分離します。
 * `g.OperationPluginManager#register()` を使用した README と sample の修正。
 
