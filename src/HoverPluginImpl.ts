@@ -22,7 +22,7 @@ export class HoverPluginImpl implements g.OperationPlugin {
 
 	constructor(game: g.Game, viewInfo: g.OperationPluginViewInfo | null, option: HoverPluginOptions = {}) {
 		this.game = game;
-		this.view = viewInfo?.view as HTMLElement;
+		this.view = viewInfo!.view as HTMLElement; // viewInfo が必ず渡ってくるため null にはならない
 		this.beforeHover = null;
 		this.operationTrigger = new g.Trigger();
 		this._cursor = option.cursor || "pointer";
