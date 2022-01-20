@@ -22,22 +22,16 @@ akashic install @akashic-extension/akashic-hover-plugin
 `g.OperationPluginManager#register()` の第一引数にはプラグインの実態、第二引数には識別コードを指定する必要があります。識別コードは対象のプラグインを開始/停止する操作に必要となります。
 
 ```javascript
-import { HoverPlugin } from "@akashic-extension/akashic-hover-plugin/lib/HoverPlugin";
+import * as hover from "@akashic-extension/akashic-hover-plugin";
 ...
-g.game.operationPluginManager.register(HoverPlugin, 5); // HoverPlugin を 識別コード 5 で 登録
+g.game.operationPluginManager.register(hover.HoverPlugin, 5); // HoverPlugin を 識別コード 5 で 登録
 g.game.operationPluginManager.start(5); // 識別コード 5 のプラグインを開始
 ...
 
 g.game.operationPluginManager.stop(5) // 識別コード 5 のプラグインを停止
 ```
 
-また、第三引数にはプラグインのオプションを指定できます。
-
-```javascript
-g.game.operationPluginManager.register(HoverPlugin, 5, { cursor: "help", showTooltip: true });
-```
-
-`option` は次の名前のプロパティ名と対応する値を持つオブジェクトです。
+第三引数には次の名前のプロパティ名と対応する値を持つオブジェクトを指定することができます。
 
  * cursor
    * 文字列 (省略可能。省略された場合 `"pointer"`)
@@ -46,6 +40,10 @@ g.game.operationPluginManager.register(HoverPlugin, 5, { cursor: "help", showToo
    * 真偽値 (省略可能。省略された場合 `false`)
    * ホバー時にtooltipを表示されるかどうか。
    * 表示内容は `HoverableE#title` 。
+
+```javascript
+g.game.operationPluginManager.register(hover.HoverPlugin, 5, { cursor: "help", showTooltip: true });
+```
 
 ### コンテンツへの適用
 
