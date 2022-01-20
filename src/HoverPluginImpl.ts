@@ -4,7 +4,7 @@ import { HoverPluginOptions } from "./HoverPluginOptions";
 /**
  * ホバー機能を提供するプラグイン。
  */
-export class HoverPluginImpl implements g.OperationPlugin {
+export class HoverPlugin implements g.OperationPlugin {
 	game: g.Game;
 	view: HTMLElement;
 	beforeHover: HoverableE | null;

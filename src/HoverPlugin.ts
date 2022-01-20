@@ -1,4 +1,4 @@
-import { HoverPluginImpl } from "./HoverPluginImpl";
+import { HoverPlugin as HoverPluginImpl } from "./HoverPluginImpl";
 
 /**
  * ホバー機能を提供するプラグイン。
