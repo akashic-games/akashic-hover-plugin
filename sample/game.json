@@ -28,7 +28,7 @@
 	},
 	"globalScripts": [
 		"node_modules/@akashic-extension/akashic-hover-plugin/lib/Converter.js",
-		"node_modules/@akashic-extension/akashic-hover-plugin/lib/HoverPluginImpl.js",
+		"node_modules/@akashic-extension/akashic-hover-plugin/lib/HoverPlugin.js",
 		"node_modules/@akashic-extension/akashic-hover-plugin/lib/index.js"
 	],
 	"moduleMainScripts": {
