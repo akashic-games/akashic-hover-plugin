@@ -24,24 +24,11 @@
 			"width": 128,
 			"height": 288,
 			"path": "image/aco.png"
-		},
-		"hover_plugin": {
-			"type": "script",
-			"path": "node_modules/@akashic-extension/akashic-hover-plugin/lib/HoverPlugin.js",
-			"global": true
 		}
 	},
-	"operationPlugins": [
-		{
-			"code": 1,
-			"script": "./node_modules/@akashic-extension/akashic-hover-plugin/lib/HoverPlugin.js",
-			"option": {
-				"showTooltip": true
-			}
-		}
-	],
 	"globalScripts": [
 		"node_modules/@akashic-extension/akashic-hover-plugin/lib/Converter.js",
+		"node_modules/@akashic-extension/akashic-hover-plugin/lib/HoverPlugin.js",
 		"node_modules/@akashic-extension/akashic-hover-plugin/lib/index.js"
 	],
 	"moduleMainScripts": {

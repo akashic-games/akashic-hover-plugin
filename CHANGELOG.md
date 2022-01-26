@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 3.1.1
+* `g.OperationPluginManager#register()` を使用した README と sample の修正。
+
 ## 3.1.0
 * 内部的な型定義のミスを修正 (#15)
 * `Converter.asUnhoverable()` の戻り値を `HoverableE` から `g.E` に変更 (#16)
