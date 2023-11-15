@@ -18,6 +18,10 @@ export interface HoverableE extends g.E {
 	 */
 	unhovered: g.Trigger<void>;
 	/**
+	 * このエンティティのマウスオーバー中にマウス移動した際に発火するトリガ。
+	 */
+	moved: g.Trigger<g.CommonOffset>;
+	/**
 	 * このエンティティにマウスホバーした際に変化するカーソルの形状。
 	 */
 	cursor?: string;

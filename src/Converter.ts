@@ -26,6 +26,7 @@ export class Converter {
 		hoverableE.touchable = true;
 		hoverableE.hovered = hoverableE.hovered || new g.Trigger<void>();
 		hoverableE.unhovered = hoverableE.unhovered || new g.Trigger<void>();
+		hoverableE.moved = hoverableE.moved || new g.Trigger<void>();
 		if (opts) {
 			if (opts.cursor) hoverableE.cursor = opts.cursor;
 		}
@@ -46,6 +47,10 @@ export class Converter {
 			hoverableE.unhovered.fire();
 			hoverableE.unhovered.destroy();
 			delete hoverableE.unhovered;
+		}
+		if (hoverableE.moved && !hoverableE.moved.destroyed()) {
+			hoverableE.moved.destroy();
+			delete hoverableE.moved;
 		}
 		return hoverableE as g.E;
 	}

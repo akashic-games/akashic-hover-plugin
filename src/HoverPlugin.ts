@@ -61,6 +61,7 @@ class HoverPlugin implements g.OperationPlugin {
 		const point = { x: offsetX / scale.x, y: offsetY / scale.y };
 		const target = scene.findPointSourceByPoint(point).target as HoverableE;
 		if (target && target.hoverable) {
+			target.moved.fire(point);
 			if (target !== this.beforeHover) {
 				if (this.beforeHover && this.beforeHover.hoverable) {
 					this._onUnhovered(target);
