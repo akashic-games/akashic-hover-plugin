@@ -1,7 +1,7 @@
 # CHANGELOG
 
 ## 3.2.0
-* `HoverableE#moved` トリガーの追加
+* `HoverPlugin#getLatestHoveredPoint()` の追加
 
 ## 3.1.1
 * `g.OperationPluginManager#register()` を使用した README と sample の修正。

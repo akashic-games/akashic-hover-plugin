@@ -11,6 +11,7 @@ class HoverPlugin implements g.OperationPlugin {
 	operationTrigger: g.Trigger<g.OperationPluginOperation | (number | string)[]>;
 	_cursor: string;
 	_showTooltip: boolean;
+	_latestHoveredPoint: g.CommonOffset | null;
 
 	_onMouseMove_bound: (e: MouseEvent) => void;
 	_onMouseOut_bound: (e: MouseEvent) => void;
@@ -27,6 +28,7 @@ class HoverPlugin implements g.OperationPlugin {
 		this.operationTrigger = new g.Trigger();
 		this._cursor = option.cursor || "pointer";
 		this._showTooltip = !!option.showTooltip;
+		this._latestHoveredPoint = null;
 		this._getScale = (viewInfo as any).getScale ? () => (viewInfo as any).getScale() : null;
 
 		this._onMouseMove_bound = this._onMouseMove.bind(this);
@@ -42,6 +44,10 @@ class HoverPlugin implements g.OperationPlugin {
 	stop(): void {
 		this.view.removeEventListener("mousemove", this._onMouseMove_bound, false);
 		this.view.removeEventListener("mouseout", this._onMouseOut_bound, false);
+	}
+
+	getLatestHoveredPoint(): g.CommonOffset | null {
+		return this._latestHoveredPoint;
 	}
 
 	_onMouseMove(e: MouseEvent): void {
@@ -61,7 +67,7 @@ class HoverPlugin implements g.OperationPlugin {
 		const point = { x: offsetX / scale.x, y: offsetY / scale.y };
 		const target = scene.findPointSourceByPoint(point).target as HoverableE;
 		if (target && target.hoverable) {
-			target.moved.fire(point);
+			this._latestHoveredPoint = point;
 			if (target !== this.beforeHover) {
 				if (this.beforeHover && this.beforeHover.hoverable) {
 					this._onUnhovered(target);
