@@ -11,7 +11,7 @@ class HoverPlugin implements g.OperationPlugin {
 	operationTrigger: g.Trigger<g.OperationPluginOperation | (number | string)[]>;
 	_cursor: string;
 	_showTooltip: boolean;
-	_latestHoveredPoint: g.CommonOffset | null;
+	_latestHoveredPoint: g.CommonOffset;
 
 	_onMouseMove_bound: (e: MouseEvent) => void;
 	_onMouseOut_bound: (e: MouseEvent) => void;
@@ -28,7 +28,7 @@ class HoverPlugin implements g.OperationPlugin {
 		this.operationTrigger = new g.Trigger();
 		this._cursor = option.cursor || "pointer";
 		this._showTooltip = !!option.showTooltip;
-		this._latestHoveredPoint = null;
+		this._latestHoveredPoint = { x: 0, y: 0 };
 		this._getScale = (viewInfo as any).getScale ? () => (viewInfo as any).getScale() : null;
 
 		this._onMouseMove_bound = this._onMouseMove.bind(this);
@@ -46,7 +46,7 @@ class HoverPlugin implements g.OperationPlugin {
 		this.view.removeEventListener("mouseout", this._onMouseOut_bound, false);
 	}
 
-	getLatestHoveredPoint(): g.CommonOffset | null {
+	getLatestHoveredPoint(): g.CommonOffset {
 		return this._latestHoveredPoint;
 	}
 
