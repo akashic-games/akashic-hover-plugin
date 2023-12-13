@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 3.2.1
+* HoverPlugin の型定義を export するように修正
+
 ## 3.2.0
 * `HoverPlugin#getLatestHoveredPoint()` の追加
 
