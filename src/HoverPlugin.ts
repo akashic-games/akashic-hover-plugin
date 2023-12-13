@@ -1,10 +1,25 @@
 import { HoverableE } from "./HoverableE";
 import { HoverPluginOptions } from "./HoverPluginOptions";
 
+export interface HoverPluginLike extends g.OperationPlugin {
+	game: g.Game;
+	view: HTMLElement;
+	beforeHover: HoverableE | null;
+	operationTrigger: g.Trigger<g.OperationPluginOperation | (number | string)[]>;
+	start(): boolean;
+	stop(): void;
+	getLatestHoveredPoint(): g.CommonOffset | null;
+}
+
+export interface HoverPluginStatic {
+	isSupported: () => boolean;
+	new (game: any, viewInfo: g.OperationPluginViewInfo | null, option?: any): HoverPluginLike;
+}
+
 /**
  * ホバー機能を提供するプラグイン。
  */
-class HoverPlugin implements g.OperationPlugin {
+class HoverPlugin implements HoverPluginLike {
 	game: g.Game;
 	view: HTMLElement;
 	beforeHover: HoverableE | null;
