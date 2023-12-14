@@ -5,9 +5,6 @@ export interface HoverPluginLike extends g.OperationPlugin {
 	game: g.Game;
 	view: HTMLElement;
 	beforeHover: HoverableE | null;
-	operationTrigger: g.Trigger<g.OperationPluginOperation | (number | string)[]>;
-	start(): boolean;
-	stop(): void;
 	getLatestHoveredPoint(): g.CommonOffset | null;
 }
 
