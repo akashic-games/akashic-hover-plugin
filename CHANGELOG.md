@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 3.2.2
+* 型定義から DOM の型を削除
+
 ## 3.2.1
 * HoverPlugin の型定義を export するように修正
 

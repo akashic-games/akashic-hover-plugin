@@ -6,5 +6,6 @@ export  { HoverPluginLike, HoverPluginStatic } from "./HoverPlugin";
 // HoverPlugin.ts で module.exports しているため、そのまま export すると使用側で型がおかしくなる。
 // 後方互換性のため module.exports は残しここでキャストしている。
 import * as plugin from "./HoverPlugin";
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const hoverPlugin = plugin as HoverPluginStatic;
-export { hoverPlugin };
+export { hoverPlugin as HoverPlugin };
