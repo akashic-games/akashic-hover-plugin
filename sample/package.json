@@ -13,7 +13,7 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "@akashic-extension/akashic-hover-plugin": "file:../akashic-extension-akashic-hover-plugin-3.2.2.tgz"
+    "@akashic-extension/akashic-hover-plugin": "~3.2.1"
   },
   "devDependencies": {
     "@akashic/akashic-cli-scan": "~0.15.2",
