@@ -7,4 +7,4 @@ export  { HoverPluginLike, HoverPluginStatic } from "./HoverPlugin";
 // 後方互換性のため module.exports は残しここでキャストしている。
 import * as plugin from "./HoverPlugin";
 const hoverPlugin = plugin as HoverPluginStatic;
-export { hoverPlugin };
+export { hoverPlugin as HoverPlugin };
