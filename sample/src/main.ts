@@ -2,7 +2,7 @@ import * as hover from "@akashic-extension/akashic-hover-plugin";
 import { HoverableLabel } from "./HoverableLabel";
 import { HoverableRect } from "./HoverableRect";
 
-g.game.operationPluginManager.register(hover.HoverPlugin, 5);
+g.game.operationPluginManager.register(hover.hoverPlugin, 5);
 g.game.operationPluginManager.start(5);
 
 export function main(param: g.GameMainParameterObject): void {
