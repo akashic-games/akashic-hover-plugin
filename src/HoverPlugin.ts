@@ -3,7 +3,6 @@ import { HoverPluginOptions } from "./HoverPluginOptions";
 
 export interface HoverPluginLike extends g.OperationPlugin {
 	game: g.Game;
-	view: HTMLElement;
 	beforeHover: HoverableE | null;
 	getLatestHoveredPoint(): g.CommonOffset | null;
 }
