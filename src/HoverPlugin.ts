@@ -42,10 +42,15 @@ class HoverPlugin implements HoverPluginLike {
 		this._onMouseOut_bound = this._onMouseOut.bind(this);
 	}
 
+	isMobileDevice() {
+		return /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop|Fennec|BlackBerry|BB10|PlayBook|Silk/.test(navigator.userAgent);
+	}
 	start(): boolean {
-		this.view.addEventListener("mousemove", this._onMouseMove_bound, false);
-		this.view.addEventListener("mouseout", this._onMouseOut_bound, false);
-		this.view.addEventListener("pointerout", this._onMouseOut_bound, false);
+        if (this.isMobileDevice()==false) {
+			this.view.addEventListener("mousemove", this._onMouseMove_bound, false);
+			this.view.addEventListener("mouseout", this._onMouseOut_bound, false);
+			this.view.addEventListener("pointerout", this._onMouseOut_bound, false);
+        }
 		return true;
 	}
 
