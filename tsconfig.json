@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "target": "ES5",
-    "lib": [ "dom", "es5" ],
-    "noImplicitAny": true,
-    "module": "commonjs",
-    "outDir": "./dist",
-    "strict": true,
+    "target": "ES6",
     "declaration": true,
+    "lib": [ "es6" ],
+    "noImplicitAny": true,
+    "outDir": "lib",
+    "module": "commonjs",
+    "types": [ "node" ],
     "allowUmdGlobalAccess": true
   },
   "files": [
