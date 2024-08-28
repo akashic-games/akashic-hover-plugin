@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "target": "ES5",
-    "lib": ["dom", "es5"],
+    "lib": [ "dom", "es5" ],
     "noImplicitAny": true,
-    "module": "commonjs" ,
-    "outDir": "../object-hunt-quaterview\\src\\akashic-hover-plugin",
+    "module": "commonjs",
+    "outDir": "./dist",
     "strict": true,
     "declaration": true,
     "allowUmdGlobalAccess": true
