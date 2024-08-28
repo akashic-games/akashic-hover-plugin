@@ -1,5 +1,5 @@
 {
-  "name": "@akashic-extension/akashic-hover-plugin",
+  "name": "@akashic-extension/akashic-hover-plugin-thanh",
   "version": "3.2.3",
   "description": "A plugin handling mouse hover/unhover events easily for Akashic Engine",
   "main": "lib/index.js",
