@@ -4,7 +4,7 @@
     "lib": ["dom", "es5"],
     "noImplicitAny": true,
     "module": "commonjs" ,
-    "outDir": "./lib",
+    "outDir": "../object-hunt-quaterview\\src\\akashic-hover-plugin",
     "strict": true,
     "declaration": true,
     "allowUmdGlobalAccess": true
