@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "target": "ES5",
-    "lib": ["dom", "es5"],
-    "noImplicitAny": true,
-    "module": "commonjs" ,
-    "outDir": "../object-hunt-quaterview\\src\\akashic-hover-plugin",
-    "strict": true,
+    "target": "ES6",
     "declaration": true,
+    "lib": [ "dom", "es6" ],
+    "noImplicitAny": true,
+    "outDir": "lib",
+    "module": "commonjs",
+    "types": [ "node" ],
     "allowUmdGlobalAccess": true
   },
   "files": [
@@ -14,5 +14,6 @@
   ],
   "include": [
     "src/**/*.ts"
-  ]
+  ],
+  "exclude": [ "node_modules" ]
 }
