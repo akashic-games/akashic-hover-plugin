@@ -20,8 +20,6 @@ class HoverPlugin implements HoverPluginLike {
 	view: HTMLElement;
 	beforeHover: HoverableE | null;
 	operationTrigger: g.Trigger<g.OperationPluginOperation | (number | string)[]>;
-	_cursor: string;
-	_showTooltip: boolean;
 	_latestHoveredPoint: g.CommonOffset | null;
 
 	_onMouseMove_bound: (e: MouseEvent) => void;
@@ -37,8 +35,6 @@ class HoverPlugin implements HoverPluginLike {
 		this.view = viewInfo!.view as HTMLElement; // viewInfo が必ず渡ってくるため null にはならない
 		this.beforeHover = null;
 		this.operationTrigger = new g.Trigger();
-		this._cursor = option.cursor || "pointer";
-		this._showTooltip = !!option.showTooltip;
 		this._latestHoveredPoint = null;
 		this._getScale = (viewInfo as any).getScale ? () => (viewInfo as any).getScale() : null;
 
@@ -46,10 +42,15 @@ class HoverPlugin implements HoverPluginLike {
 		this._onMouseOut_bound = this._onMouseOut.bind(this);
 	}
 
+	isMobileDevice() {
+		return /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop|Fennec|BlackBerry|BB10|PlayBook|Silk/.test(navigator.userAgent);
+	}
 	start(): boolean {
-		this.view.addEventListener("mousemove", this._onMouseMove_bound, false);
-		this.view.addEventListener("mouseout", this._onMouseOut_bound, false);
-		this.view.addEventListener("pointerout", this._onMouseOut_bound, false);
+        if (this.isMobileDevice()==false) {
+			this.view.addEventListener("mousemove", this._onMouseMove_bound, false);
+			this.view.addEventListener("mouseout", this._onMouseOut_bound, false);
+			this.view.addEventListener("pointerout", this._onMouseOut_bound, false);
+        }
 		return true;
 	}
 
@@ -97,21 +98,13 @@ class HoverPlugin implements HoverPluginLike {
 
 	_onHovered(target: HoverableE): void {
 		if (target.hoverable) {
-			this.view.style.cursor = target.cursor ? target.cursor : this._cursor;
-			if (this._showTooltip && target.title) {
-				this.view.setAttribute("title", target.title);
-			}
 			target.hovered.fire();
 		}
 	}
 
 	_onUnhovered(_target: HoverableE): void {
-		this.view.style.cursor = "auto";
 		if (this.beforeHover && this.beforeHover.unhovered) {
 			this.beforeHover.unhovered.fire();
-			if (this._showTooltip) {
-				this.view.removeAttribute("title");
-			}
 		}
 		this.beforeHover = null;
 	}
