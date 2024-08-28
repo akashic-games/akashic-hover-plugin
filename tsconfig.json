@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES6",
     "declaration": true,
-    "lib": [ "es6" ],
+    "lib": [ "dom", "es6" ],
     "noImplicitAny": true,
     "outDir": "lib",
     "module": "commonjs",
