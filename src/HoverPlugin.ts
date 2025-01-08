@@ -31,6 +31,7 @@ class HoverPlugin implements HoverPluginLike {
 	}
 
 	constructor(game: g.Game, viewInfo: g.OperationPluginViewInfo | null, option: HoverPluginOptions = {}) {
+		console.log('HoverPlugin construct!');
 		this.game = game;
 		this.view = viewInfo!.view as HTMLElement; // viewInfo が必ず渡ってくるため null にはならない
 		this.beforeHover = null;
