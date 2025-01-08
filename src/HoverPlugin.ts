@@ -43,14 +43,22 @@ class HoverPlugin implements HoverPluginLike {
 	}
 
 	isMobileDevice() {
+		if (typeof navigator === "undefined") return false;
+		// is iPad Desktop mode
+		if (typeof document !== "undefined") {
+			if (/Mac OS/.test(navigator.userAgent) && document.ontouchstart != null) {
+				// Note: If PC Mac & enable touch device, return true
+				return true;
+			}
+		}
 		return /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop|Fennec|BlackBerry|BB10|PlayBook|Silk/.test(navigator.userAgent);
 	}
 	start(): boolean {
-        if (this.isMobileDevice()==false) {
+		if (this.isMobileDevice()==false) {
 			this.view.addEventListener("mousemove", this._onMouseMove_bound, false);
 			this.view.addEventListener("mouseout", this._onMouseOut_bound, false);
 			this.view.addEventListener("pointerout", this._onMouseOut_bound, false);
-        }
+		}
 		return true;
 	}
 
