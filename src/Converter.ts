@@ -1,4 +1,4 @@
-import { HoverableE } from "./HoverableE";
+import type { HoverableE } from "./HoverableE";
 
 /**
  * コンバータオプション。

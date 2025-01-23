@@ -1,5 +1,5 @@
-import { HoverableE } from "./HoverableE";
-import { HoverPluginOptions } from "./HoverPluginOptions";
+import type { HoverableE } from "./HoverableE";
+import type { HoverPluginOptions } from "./HoverPluginOptions";
 
 export interface HoverPluginLike extends g.OperationPlugin {
 	game: g.Game;
